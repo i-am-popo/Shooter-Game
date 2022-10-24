@@ -1,5 +1,10 @@
 // Importing Sound Effects
-
+const introMusic = new Audio("./music/introSong.mp3");
+const shootingSound = new Audio("./music/shoooting.mp3");
+const killEnemySound = new Audio("./music/killEnemy.mp3");
+const gameOverSound = new Audio("./music/gameOver.mp3");
+const heavyWeaponSound = new Audio("./music/heavyWeapon.mp3");
+const hugeWeaponSound = new Audio("./music/hugeWeapon.mp3");
 introMusic.play();
 // Basic Environment Setup
 const canvas = document.createElement("canvas");
@@ -156,7 +161,24 @@ class Weapon {
 
 // Creating HugeWeapon Class
 
+class HugeWeapon {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.color = "rgba(255,0,133,1)";
+  }
 
+  draw() {
+    context.beginPath();
+    context.fillStyle = this.color;
+    context.fillRect(this.x, this.y, 200, canvas.height);
+  }
+
+  update() {
+    this.draw();
+    this.x += 20;
+  }
+}
 
 // Creating Enemy Class
 
