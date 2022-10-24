@@ -161,7 +161,24 @@ class Weapon {
 
 // Creating HugeWeapon Class
 
+class HugeWeapon {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.color = "rgba(255,0,133,1)";
+  }
 
+  draw() {
+    context.beginPath();
+    context.fillStyle = this.color;
+    context.fillRect(this.x, this.y, 200, canvas.height);
+  }
+
+  update() {
+    this.draw();
+    this.x += 20;
+  }
+}
 
 // Creating Enemy Class
 
