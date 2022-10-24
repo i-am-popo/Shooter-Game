@@ -286,7 +286,21 @@ const spawnEnemy = () => {
     };
   }
 
-  
+  // Finding Angle between center (means Player Position) and enemy position
+  const myAngle = Math.atan2(
+    canvas.height / 2 - random.y,
+    canvas.width / 2 - random.x
+  );
+
+  // Making velocity or speed of enemy by multipling chosen difficulty to radian
+  const velocity = {
+    x: Math.cos(myAngle) * difficulty,
+    y: Math.sin(myAngle) * difficulty,
+  };
+
+  // Adding enemy to enemies array
+  enemies.push(new Enemy(random.x, random.y, enemySize, enemyColor, velocity));
+};
 
 // ------------------------------------------------Creating Animation Function ---------------------------------------
 
